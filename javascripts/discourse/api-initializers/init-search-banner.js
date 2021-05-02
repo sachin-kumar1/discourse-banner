@@ -36,6 +36,7 @@ export default apiInitializer("0.8", (api) => {
         formFactor: attrs.formFactor || "menu",
         showHeaderResults: false,
         cdata: [],
+        categoryName: "Category",
       };
     },
     html: function () {
@@ -66,7 +67,7 @@ export default apiInitializer("0.8", (api) => {
         } else {
           let result = [
             h("div.dropdown", [
-              h("div.dropbtn", { name: "toggle" }, "Category"),
+              h("div.dropbtn", { name: "toggle" }, this.state.categoryName),
             ]),
           ];
           result.push(this.panelContents());
@@ -83,6 +84,9 @@ export default apiInitializer("0.8", (api) => {
       if (!this.vnode.hooks["widget-mouse-down-outside"]) {
         return this.mouseDownOutside();
       }
+    },
+    keyPress(attrs) {
+      console.log("key is pressed");
     },
     mouseDown(attrs) {
       if (attrs.target.name === "search") {
