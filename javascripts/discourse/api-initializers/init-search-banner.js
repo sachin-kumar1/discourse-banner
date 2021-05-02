@@ -86,29 +86,22 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    keyDown: function(attrs) {
-      let flg=0
+    keyDown: function (attrs) {
+      let flg = 0;
       var clock = sinon.useFakeTimers();
       clock.tick(1);
-      await setTimeout(function () {
+      setTimeout(function () {
         if (
           $("#search-term").val().length === 1 ||
           $("#search-term").val().length === 0
         ) {
           flg = 1;
+        } else {
+          flg = 0;
         }
-        else{
-          flg=0
-        }
-        console.log(
-          "key is pressed normal",
-          attrs.target.value,
-        );
+        console.log("key is pressed normal", attrs.target.value);
       }, 1);
-      console.log(
-        "key is pressed clock",
-        attrs.target.value,
-      );
+      console.log("key is pressed clock", attrs.target.value);
     },
     keyUp: function (attrs) {
       console.log("insert", attrs.target.value);
