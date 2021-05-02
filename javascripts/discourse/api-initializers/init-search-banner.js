@@ -1,5 +1,6 @@
 import { apiInitializer } from "discourse/lib/api";
 import { h } from "virtual-dom";
+import sinon from "sinon";
 export default apiInitializer("0.8", (api) => {
   const enableConnectorName = settings.plugin_outlet;
   const disableConnectorName =
