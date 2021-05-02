@@ -87,15 +87,18 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     keyDown: function (attrs) {
-      let categoryName = this.state.categoryName;
-      setTimeout(function (categoryName) {
+      setTimeout(function () {
         if (
           $("#search-term").val().length === 1 ||
           $("#search-term").val().length === 0
         ) {
-          categoryName = "Category";
+          this.state.categoryName = "Category";
         }
-        console.log("key is pressed", attrs.target.value, categoryName);
+        console.log(
+          "key is pressed",
+          attrs.target.value,
+          this.state.categoryName
+        );
       }, 1);
     },
     keyUp: function (attrs) {
