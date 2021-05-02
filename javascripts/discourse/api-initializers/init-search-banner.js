@@ -87,6 +87,9 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     keyDown: function (attrs) {
+      if ($("#search-term").val(`#${attrs.target.name}`) === "") {
+        this.state.categoryName = "Category";
+      }
       console.log("key is pressed");
     },
     mouseDown(attrs) {
@@ -121,6 +124,7 @@ export default apiInitializer("0.8", (api) => {
         attrs.target.name !== undefined
       ) {
         this.searchData.term = `#${attrs.target.name}`;
+        this.state.categoryName = `#${attrs.target.name}`;
         this.triggerSearch();
         $("#search-term").val(`#${attrs.target.name}`);
         document.getElementById("myDropdown").classList.remove("show");
