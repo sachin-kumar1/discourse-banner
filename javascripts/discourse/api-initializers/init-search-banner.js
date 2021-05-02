@@ -88,10 +88,10 @@ export default apiInitializer("0.8", (api) => {
     },
     keyDown: function (attrs) {
       let flg = 0;
-      let categoryName = this.state.categoryName;
+      let that = this;
       setTimeout(function () {
         if ($("#search-term").val().length === 0) {
-          categoryName = "Category";
+          that.state.categoryNamee = "Category";
         }
       }, 1);
     },
