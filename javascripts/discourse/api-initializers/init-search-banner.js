@@ -86,11 +86,15 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    keyPress: function (attrs) {
+    keyDown: function (attrs) {
       if ($("#search-term").val() === "") {
         this.state.categoryName = "Category";
       }
-      console.log("key is pressed");
+      console.log(
+        "key is pressed",
+        $("#search-term").val(),
+        this.searchData.term
+      );
     },
     mouseDown(attrs) {
       if (attrs.target.name === "search") {
