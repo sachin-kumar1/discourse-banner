@@ -88,20 +88,12 @@ export default apiInitializer("0.8", (api) => {
     },
     keyDown: function (attrs) {
       let flg = 0;
-      var that = this;
+      let categoryName = this.state.categoryName;
       setTimeout(function () {
-        if ($("#search-term").val().length === 0) {
-          that.setCategory();
+        if ($("#search-term").val().length === "") {
+          categoryName = "Category";
         }
-        console.log("key is pressed normal", attrs.target.value);
       }, 1);
-      console.log("key is pressed clock", attrs.target.value);
-    },
-    setCategory: function () {
-      console.log("category is", this.state.categoryName);
-    },
-    keyUp: function (attrs) {
-      console.log("insert", attrs.target.value);
     },
     mouseDown(attrs) {
       if (attrs.target.name === "search") {
