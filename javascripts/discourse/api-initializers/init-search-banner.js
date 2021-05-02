@@ -131,9 +131,11 @@ export default apiInitializer("0.8", (api) => {
         this.triggerSearch();
         $("#search-term").val(`#${attrs.target.name}`);
         let categoryNamew = attrs.target.name
-          .toLowerCase()
-          .replace(/ /g, "-")
-          .replace(/[^\w-]+/g, "");
+          .split("-")
+          .join(" ")
+          .replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+          });
         this.state.categoryName = categoryNamew;
         console.log("after slug", categoryNamew);
         document.getElementById("myDropdown").classList.remove("show");
