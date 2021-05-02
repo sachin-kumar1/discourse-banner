@@ -1,6 +1,5 @@
 import { apiInitializer } from "discourse/lib/api";
 import { h } from "virtual-dom";
-import sinon from "sinon";
 export default apiInitializer("0.8", (api) => {
   const enableConnectorName = settings.plugin_outlet;
   const disableConnectorName =
@@ -89,20 +88,19 @@ export default apiInitializer("0.8", (api) => {
     },
     keyDown: function (attrs) {
       let flg = 0;
-      var clock = sinon.useFakeTimers();
-      clock.tick(1);
       setTimeout(function () {
         if (
           $("#search-term").val().length === 1 ||
           $("#search-term").val().length === 0
         ) {
-          flg = 1;
-        } else {
-          flg = 0;
+          this.setCategory();
         }
         console.log("key is pressed normal", attrs.target.value);
       }, 1);
       console.log("key is pressed clock", attrs.target.value);
+    },
+    setCategory: function () {
+      console.log("category is", this.state.categoryName);
     },
     keyUp: function (attrs) {
       console.log("insert", attrs.target.value);
