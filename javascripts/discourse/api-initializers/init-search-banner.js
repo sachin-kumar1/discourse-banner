@@ -130,11 +130,11 @@ export default apiInitializer("0.8", (api) => {
         this.searchData.term = `#${attrs.target.name}`;
         this.triggerSearch();
         $("#search-term").val(`#${attrs.target.name}`);
-        let categoryName = attrs.target.name
+        let categoryNamew = attrs.target.name
           .toLowerCase()
           .replace(/ /g, "-")
           .replace(/[^\w-]+/g, "");
-        this.state.categoryName = categoryName;
+        this.state.categoryName = categoryNamew;
         document.getElementById("myDropdown").classList.remove("show");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
