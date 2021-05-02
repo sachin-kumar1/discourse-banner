@@ -86,8 +86,10 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    keyDown: function async (attrs) {
+    keyDown: function(attrs) {
       let flg=0
+      var clock = sinon.useFakeTimers();
+      clock.tick(1);
       await setTimeout(function () {
         if (
           $("#search-term").val().length === 1 ||
@@ -99,11 +101,14 @@ export default apiInitializer("0.8", (api) => {
           flg=0
         }
         console.log(
-          "key is pressed",
+          "key is pressed normal",
           attrs.target.value,
         );
       }, 1);
-      console.log("flg")
+      console.log(
+        "key is pressed clock",
+        attrs.target.value,
+      );
     },
     keyUp: function (attrs) {
       console.log("insert", attrs.target.value);
