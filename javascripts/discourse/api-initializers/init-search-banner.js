@@ -88,15 +88,15 @@ export default apiInitializer("0.8", (api) => {
     },
     keyDown: function (attrs) {
       let flg = 0;
-      setTimeout(function () {
-        if (
-          $("#search-term").val().length === 1 ||
-          $("#search-term").val().length === 0
-        ) {
-          this.setCategory();
-        }
-        console.log("key is pressed normal", attrs.target.value);
-      }, 1);
+      setTimeout(
+        function () {
+          if ($("#search-term").val().length === 0) {
+            self.setCategory();
+          }
+          console.log("key is pressed normal", attrs.target.value);
+        }.call(self),
+        1
+      );
       console.log("key is pressed clock", attrs.target.value);
     },
     setCategory: function () {
