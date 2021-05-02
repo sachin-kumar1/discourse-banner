@@ -93,10 +93,12 @@ export default apiInitializer("0.8", (api) => {
       ) {
         this.state.categoryName = "Category";
       }
-      console.log("key is pressed", attrs);
-      this.checkInput(attrs);
+      setTimeout(function () {
+        // check if new value is more or equal to 255
+        console.log("key is pressed", attrs.target.value);
+      }, 1);
     },
-    checkInput: function (attrs) {
+    keyUp(attrs) {
       console.log("insert", attrs.target.value);
     },
     mouseDown(attrs) {
