@@ -87,7 +87,10 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     keyDown: function (attrs) {
-      if ($("#search-term").val() === "") {
+      if (
+        $("#search-term").val().length === 1 ||
+        $("#search-term").val().length === 0
+      ) {
         this.state.categoryName = "Category";
       }
       console.log(
