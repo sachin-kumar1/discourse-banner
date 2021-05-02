@@ -93,7 +93,7 @@ export default apiInitializer("0.8", (api) => {
       ) {
         this.state.categoryName = "Category";
       }
-      console.log("key is pressed", attrs);
+      console.log("key is pressed", attrs.target.value);
     },
     checkInput: function (attrs) {
       console.log("insert", $("#search-term").val(), this.searchData.term);
