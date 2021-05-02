@@ -86,7 +86,7 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    keyPress(attrs) {
+    keyDown: function (attrs) {
       console.log("key is pressed");
     },
     mouseDown(attrs) {
