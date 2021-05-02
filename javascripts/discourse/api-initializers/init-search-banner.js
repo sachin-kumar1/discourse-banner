@@ -86,7 +86,7 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    keyDown: function (attrs) {
+    keyDown: function async (attrs) {
       let flg=0
       await setTimeout(function () {
         if (
