@@ -94,7 +94,7 @@ export default apiInitializer("0.8", (api) => {
         this.showResults();
       }
       console.log("click called", attrs);
-      console.log("testing changestyu");
+      console.log("testing changestyu", keyDownfunction);
     },
     mouseDownOutside() {
       const formFactor = this.state.formFactor;
