@@ -86,7 +86,7 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    keyDown: function (attrs) {
+    keyPress: function (attrs) {
       if ($("#search-term").val() === "") {
         this.state.categoryName = "Category";
       }
