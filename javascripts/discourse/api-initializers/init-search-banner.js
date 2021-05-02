@@ -97,7 +97,7 @@ export default apiInitializer("0.8", (api) => {
       this.checkInput();
     },
     checkInput: function (attrs) {
-      console.log("insert", $("#search-term").val(), this.searchData.term);
+      console.log("insert", attrs.target.value);
     },
     mouseDown(attrs) {
       if (attrs.target.name === "search") {
