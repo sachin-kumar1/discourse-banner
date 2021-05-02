@@ -94,7 +94,7 @@ export default apiInitializer("0.8", (api) => {
         this.state.categoryName = "Category";
       }
       console.log("key is pressed", attrs);
-      this.checkInput();
+      this.checkInput(attrs);
     },
     checkInput: function (attrs) {
       console.log("insert", attrs.target.value);
