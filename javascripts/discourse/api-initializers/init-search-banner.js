@@ -135,6 +135,7 @@ export default apiInitializer("0.8", (api) => {
           .replace(/ /g, "-")
           .replace(/[^\w-]+/g, "");
         this.state.categoryName = categoryNamew;
+        console.log("after slug", categoryNamew);
         document.getElementById("myDropdown").classList.remove("show");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
