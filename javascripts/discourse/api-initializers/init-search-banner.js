@@ -99,7 +99,7 @@ export default apiInitializer("0.8", (api) => {
         this.searchData.term
       );
     },
-    didInsertElement(attrs) {
+    didInsertElement: function (attrs) {
       console.log("insert", $("#search-term").val(), this.searchData.term);
     },
     mouseDown(attrs) {
