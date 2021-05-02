@@ -91,7 +91,7 @@ export default apiInitializer("0.8", (api) => {
       let that = this;
       setTimeout(function () {
         if ($("#search-term").val().length === 0) {
-          that.state.categoryNamee = "Category";
+          that.state.categoryName = "Category";
         }
       }, 1);
     },
