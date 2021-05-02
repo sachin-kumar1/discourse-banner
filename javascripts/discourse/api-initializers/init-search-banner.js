@@ -139,7 +139,11 @@ export default apiInitializer("0.8", (api) => {
       //   this.showResults();
       // }
     },
-    focusIn() {
+    focusIn: function () {
+      this.showResults();
+      console.log("focus is made cap");
+    },
+    focusin: function () {
       this.showResults();
       console.log("focus is made");
     },
