@@ -47,7 +47,7 @@ export default apiInitializer("0.8", (api) => {
         if (this.state.cdata.length > 0) {
           let result = [
             h("div.dropdown", [
-              h("div.dropbtn", { name: "toggle" }, "Category"),
+              h("div.dropbtn", { name: "toggle" }, this.state.categoryName),
               h(
                 "div.dropdown-content#myDropdown",
                 this.state.cdata.map((val) =>
