@@ -87,18 +87,17 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     keyDown: function (attrs) {
-      if (
-        $("#search-term").val().length === 1 ||
-        $("#search-term").val().length === 0
-      ) {
-        this.state.categoryName = "Category";
-      }
       setTimeout(function () {
-        // check if new value is more or equal to 255
+        if (
+          $("#search-term").val().length === 1 ||
+          $("#search-term").val().length === 0
+        ) {
+          this.state.categoryName = "Category";
+        }
         console.log("key is pressed", attrs.target.value);
       }, 1);
     },
-    keyUp(attrs) {
+    keyUp: function (attrs) {
       console.log("insert", attrs.target.value);
     },
     mouseDown(attrs) {
