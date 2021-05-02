@@ -128,9 +128,13 @@ export default apiInitializer("0.8", (api) => {
         attrs.target.name !== undefined
       ) {
         this.searchData.term = `#${attrs.target.name}`;
-        this.state.categoryName = `#${attrs.target.name}`;
         this.triggerSearch();
         $("#search-term").val(`#${attrs.target.name}`);
+        let categoryName = attrs.target.name
+          .toLowerCase()
+          .replace(/ /g, "-")
+          .replace(/[^\w-]+/g, "");
+        this.state.categoryName = categoryName;
         document.getElementById("myDropdown").classList.remove("show");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
@@ -207,64 +211,6 @@ export default apiInitializer("0.8", (api) => {
 
   api.createWidget("search-widget", {
     tagName: "div.search-widget",
-    buildKey: () => "increment-button",
-
-    defaultState() {
-      $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
-        (data) => {
-          // some data formatting to html
-          // console.log("value is",data.category_list.categories)
-          data.category_list.categories.map((val) => {
-            console.log("value is", val.name, val.slug);
-          });
-          this.state.cdata = data.category_list.categories;
-        }
-      );
-      return { cdata: [] };
-    },
-
-    html(attrs, state) {
-      // if (this.state.cdata.length > 0) {
-      //   return h("div.dropdown", [
-      //     h("div.dropbtn", { name: "toggle" }, "Category"),
-      //     h(
-      //       "div.dropdown-content#myDropdown",
-      //       this.state.cdata.map((val) =>
-      //         h(
-      //           "li",
-      //           {
-      //             name: val.slug,
-      //             value: val.name,
-      //           },
-      //           val.name
-      //         )
-      //       )
-      //     ),
-      //   ]);
-      // } else {
-      //   return h("div.dropdown", [h("div.dropbtn", "Category")]);
-      // }
-    },
-
-    click(attrs) {
-      if (attrs.target.name === "toggle") {
-        document.getElementById("myDropdown").classList.toggle("show");
-        console.log("handle toggle");
-      }
-      if (
-        this.state.cdata.length > 0 &&
-        attrs.target.name !== "" &&
-        attrs.target.name !== "toggle" &&
-        attrs.target.name !== undefined
-      ) {
-        $("#search-term").val(`#${attrs.target.name}`);
-        document.getElementById("myDropdown").classList.remove("show");
-      }
-    },
-
-    clickOutside() {
-      document.getElementById("myDropdown").classList.remove("show");
-    },
   });
 
   api.decorateWidget("search-widget:after", function (helper) {
