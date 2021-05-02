@@ -90,7 +90,7 @@ export default apiInitializer("0.8", (api) => {
       let flg = 0;
       let categoryName = this.state.categoryName;
       setTimeout(function () {
-        if ($("#search-term").val().length === "") {
+        if ($("#search-term").val() === "") {
           categoryName = "Category";
         }
       }, 1);
