@@ -85,7 +85,7 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    onKeydown(attrs) {
+    Keydown(attrs) {
       console.log("key is pressed");
     },
     mouseDown(attrs) {
@@ -93,6 +93,7 @@ export default apiInitializer("0.8", (api) => {
         this.showResults();
       }
       console.log("click called", attrs);
+      console.log("testing changes");
     },
     mouseDownOutside() {
       const formFactor = this.state.formFactor;
