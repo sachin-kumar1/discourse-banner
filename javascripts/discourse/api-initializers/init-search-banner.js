@@ -99,18 +99,8 @@ export default apiInitializer("0.8", (api) => {
         this.searchData.term
       );
     },
-    keyUp(attrs) {
-      if (
-        $("#search-term").val().length === 1 ||
-        $("#search-term").val().length === 0
-      ) {
-        this.state.categoryName = "Category";
-      }
-      console.log(
-        "key up is pressed",
-        $("#search-term").val(),
-        this.searchData.term
-      );
+    didInsertElement(attrs) {
+      console.log("insert", $("#search-term").val(), this.searchData.term);
     },
     mouseDown(attrs) {
       if (attrs.target.name === "search") {
