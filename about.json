@@ -1,0 +1,14 @@
+{
+  "name": "discourse-search-banner",
+  "component": true,
+  "authors": null,
+  "theme_version": null,
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {
+  },
+  "color_schemes": {
+  },
+  "modifiers": {
+  }
+}
