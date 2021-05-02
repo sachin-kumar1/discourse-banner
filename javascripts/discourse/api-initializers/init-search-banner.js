@@ -87,7 +87,7 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     keyDown: function (attrs) {
-      if ($("#search-term").val(`#${attrs.target.name}`) === "") {
+      if ($("#search-term").val() === "") {
         this.state.categoryName = "Category";
       }
       console.log("key is pressed");
