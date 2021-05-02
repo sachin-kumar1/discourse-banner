@@ -90,11 +90,12 @@ export default apiInitializer("0.8", (api) => {
       let flg = 0;
       let categoryName = this.state.categoryName;
       setTimeout(function () {
-        if ($("#search-term").val() === "") {
+        if ($("#search-term").val().length === 0) {
           categoryName = "Category";
         }
       }, 1);
     },
+
     mouseDown(attrs) {
       if (attrs.target.name === "search") {
         this.showResults();
