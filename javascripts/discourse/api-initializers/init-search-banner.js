@@ -16,6 +16,7 @@ export default apiInitializer("0.8", (api) => {
   // Simplified version of header search theme component
   const searchMenuWidget = api.container.factoryFor("widget:search-menu");
   const corePanelContents = searchMenuWidget.class.prototype["panelContents"];
+  const keyDownfunction = searchMenuWidget.class.prototype["keyDown"];
   api.reopenWidget("search-menu", {
     buildKey: function (attrs) {
       let type = attrs.formFactor || "menu";
@@ -85,7 +86,7 @@ export default apiInitializer("0.8", (api) => {
         return this.mouseDownOutside();
       }
     },
-    keydown(attrs) {
+    keyDownfunction(attrs) {
       console.log("key is pressed");
     },
     mouseDown(attrs) {
