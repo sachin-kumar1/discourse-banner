@@ -25,11 +25,6 @@ export default apiInitializer("0.8", (api) => {
     defaultState: function (attrs) {
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
-          // some data formatting to html
-          // console.log("value is",data.category_list.categories)
-          data.category_list.categories.map((val) => {
-            console.log("value is", val.name, val.slug);
-          });
           this.state.cdata = data.category_list.categories;
         }
       );
@@ -100,8 +95,6 @@ export default apiInitializer("0.8", (api) => {
       if (attrs.target.name === "search") {
         this.showResults();
       }
-      console.log("click called", attrs);
-      console.log("testing changestyu", keyDownfunction);
     },
     mouseDownOutside() {
       const formFactor = this.state.formFactor;
@@ -115,11 +108,8 @@ export default apiInitializer("0.8", (api) => {
     click: function (attrs) {
       document.getElementById("myDropdown").classList.remove("show");
       const formFactor = this.state.formFactor;
-      console.log("from on click", this.get("searchData"));
-      console.log("search data", this.searchData);
       if (attrs.target.name === "toggle") {
         document.getElementById("myDropdown").classList.toggle("show");
-        console.log("handle toggle");
       }
       if (
         this.state.cdata.length > 0 &&
@@ -137,7 +127,6 @@ export default apiInitializer("0.8", (api) => {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
           });
         this.state.categoryName = categoryNamew;
-        console.log("after slug", categoryNamew);
         document.getElementById("myDropdown").classList.remove("show");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
@@ -145,14 +134,6 @@ export default apiInitializer("0.8", (api) => {
       // if (formFactor === "widget") {
       //   this.showResults();
       // }
-    },
-    focusIn: function () {
-      this.showResults();
-      console.log("focus is made cap");
-    },
-    focusin: function () {
-      this.showResults();
-      console.log("focus is made");
     },
     change: function () {
       document.getElementById("myDropdown").classList.remove("show");
@@ -166,7 +147,6 @@ export default apiInitializer("0.8", (api) => {
       this.scheduleRerender();
     },
     linkClickedEvent: function (attrs) {
-      console.log("values are", attrs);
       const formFactor = this.state.formFactor;
       if (formFactor === "widget") {
         $("#search-term").val("");
