@@ -91,7 +91,7 @@ export default apiInitializer("0.8", (api) => {
       setTimeout(
         function () {
           if ($("#search-term").val().length === 0) {
-            self.setCategory();
+            this.setCategory();
           }
           console.log("key is pressed normal", attrs.target.value);
         }.call(self),
