@@ -99,7 +99,7 @@ export default apiInitializer("0.8", (api) => {
         this.searchData.term
       );
     },
-    keyUp: function (attrs) {
+    keyUp(attrs) {
       if (
         $("#search-term").val().length === 1 ||
         $("#search-term").val().length === 0
@@ -107,7 +107,7 @@ export default apiInitializer("0.8", (api) => {
         this.state.categoryName = "Category";
       }
       console.log(
-        "key is pressed",
+        "key up is pressed",
         $("#search-term").val(),
         this.searchData.term
       );
