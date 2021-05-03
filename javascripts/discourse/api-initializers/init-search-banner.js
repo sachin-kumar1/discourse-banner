@@ -16,7 +16,6 @@ export default apiInitializer("0.8", (api) => {
   // Simplified version of header search theme component
   const searchMenuWidget = api.container.factoryFor("widget:search-menu");
   const corePanelContents = searchMenuWidget.class.prototype["panelContents"];
-  const keyDownfunction = searchMenuWidget.class.prototype["keyDown"];
   api.reopenWidget("search-menu", {
     buildKey: function (attrs) {
       let type = attrs.formFactor || "menu";
@@ -100,6 +99,7 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     mouseDownOutside() {
+      document.getElementById("myDropdown").classList.remove("show");
       const formFactor = this.state.formFactor;
       if (formFactor === "menu") {
         return this.sendWidgetAction("toggleSearchMenu");
