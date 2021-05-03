@@ -85,6 +85,7 @@ export default apiInitializer("0.8", (api) => {
       let flg = 0;
       let that = this;
       setTimeout(function () {
+        console.log("checking", !$("#search-term").val().includes("#"));
         if (
           $("#search-term").val().length === 0 &&
           !$("#search-term").val().includes("#")
