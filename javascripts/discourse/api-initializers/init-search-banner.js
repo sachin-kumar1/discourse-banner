@@ -85,7 +85,10 @@ export default apiInitializer("0.8", (api) => {
       let flg = 0;
       let that = this;
       setTimeout(function () {
-        if ($("#search-term").val().length === 0) {
+        if (
+          $("#search-term").val().length === 0 &&
+          !$("#search-term").val().includes("#")
+        ) {
           that.state.categoryName = "Category";
         }
       }, 1);
