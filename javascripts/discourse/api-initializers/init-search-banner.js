@@ -25,7 +25,10 @@ export default apiInitializer("0.8", (api) => {
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
           this.state.cdata = data.category_list.categories;
-          console.log("data.category_list.categories");
+          console.log(
+            "data.category_list.categories",
+            data.category_list.categories
+          );
         }
       );
       return {
