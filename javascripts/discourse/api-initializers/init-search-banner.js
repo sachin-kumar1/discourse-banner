@@ -24,7 +24,12 @@ export default apiInitializer("0.8", (api) => {
     defaultState: function (attrs) {
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
+          data.category_list.categories.unshift({
+            name: "All Category",
+            slug: "all-category",
+          });
           this.state.cdata = data.category_list.categories;
+
           console.log(
             "data.category_list.categories",
             data.category_list.categories
