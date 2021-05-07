@@ -154,7 +154,7 @@ export default apiInitializer("0.8", (api) => {
         let result = val.join("");
         this.searchData.term = ``;
         this.triggerSearch();
-        $("#search-term").val("");
+        $("#search-term").val(result);
         this.state.categoryName = "All Category";
       }
 
