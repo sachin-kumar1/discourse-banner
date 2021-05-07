@@ -24,7 +24,6 @@ export default apiInitializer("0.8", (api) => {
     defaultState: function (attrs) {
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
-          console.log("data is", data.category_list.categories);
           data.category_list.categories.unshift({
             name: "All Category",
             slug: "all-category",
@@ -99,7 +98,6 @@ export default apiInitializer("0.8", (api) => {
             .val()
             .split(" ")
             .filter((val) => {
-              console.log(val);
               return val.startsWith("#");
             });
           if (val.length > 0) {
@@ -133,8 +131,6 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     click: function (attrs) {
-      console.log("seeing search term", this.searchData);
-
       document.getElementById("myDropdown").classList.remove("show");
       const formFactor = this.state.formFactor;
       if (attrs.target.name === "toggle") {
@@ -162,7 +158,6 @@ export default apiInitializer("0.8", (api) => {
         attrs.target.name !== undefined &&
         attrs.target.name !== "all-category"
       ) {
-        console.log("attrs name is", attrs.target.name);
         let val = $("#search-term")
           .val()
           .split(" ")
