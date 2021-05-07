@@ -24,6 +24,7 @@ export default apiInitializer("0.8", (api) => {
     defaultState: function (attrs) {
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
+          console.log("data is", data.category_list.categories);
           data.category_list.categories.unshift({
             name: "All Category",
             slug: "all-category",
@@ -267,7 +268,7 @@ export default apiInitializer("0.8", (api) => {
   //   displayName: "testing",
   //   title: "link title",
   //   href: "/c/creating-surveys",
-  // forceActive: (category, args, router) => {
+  //    forceActive: (category, args, router) => {
   //   console.log("current url is", router.currentURL);
   //   return router.currentURL === "/c/creating-surveys";
   // },
