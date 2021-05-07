@@ -153,6 +153,7 @@ export default apiInitializer("0.8", (api) => {
           });
         let result = val.join("");
         this.searchData.term = ``;
+        $("#search-term").val(``);
         this.triggerSearch();
         this.state.categoryName = "All Category";
       }
