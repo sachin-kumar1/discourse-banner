@@ -29,10 +29,10 @@ export default apiInitializer("0.8", (api) => {
               name: val.name,
               displayName: val.name,
               title: val.name,
-              href: `/c/${val.name}`,
+              href: `/c/${val.slug}`,
               forceActive: (category, args, router) => {
                 console.log("current url is", router.currentURL);
-                return router.currentURL === `/c/${val.name}`;
+                return router.currentURL === `/c/${val.slug}`;
               },
             });
           });
