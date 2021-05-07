@@ -25,13 +25,14 @@ export default apiInitializer("0.8", (api) => {
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
           this.state.cdata = data.category_list.categories;
+          console.log("data.category_list.categories");
         }
       );
       return {
         formFactor: attrs.formFactor || "menu",
         showHeaderResults: false,
-        cdata: [],
-        categoryName: "Category",
+        cdata: ["All Category"],
+        categoryName: "All Category",
       };
     },
     html: function () {
@@ -88,7 +89,7 @@ export default apiInitializer("0.8", (api) => {
           $("#search-term").val().length === 0 ||
           !$("#search-term").val().includes("#")
         ) {
-          that.state.categoryName = "Category";
+          that.state.categoryName = "All Category";
         } else {
           let val = $("#search-term")
             .val()
@@ -107,7 +108,7 @@ export default apiInitializer("0.8", (api) => {
               });
             }
           } else {
-            that.state.categoryName = "Category";
+            that.state.categoryName = "All Category";
           }
         }
       }, 1);
