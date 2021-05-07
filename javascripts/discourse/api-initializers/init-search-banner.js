@@ -89,6 +89,21 @@ export default apiInitializer("0.8", (api) => {
           !$("#search-term").val().includes("#")
         ) {
           that.state.categoryName = "Category";
+        } else {
+          let val = $("#search-term")
+            .val()
+            .split(" ")
+            .filter((val) => {
+              console.log(val);
+              return val.startsWith("#");
+            });
+          if (val.length > 0) {
+            if (that.state.cdata) {
+              that.state.categoryName = "Categoryu";
+            }
+          } else {
+            that.state.categoryName = "Category";
+          }
         }
       }, 1);
     },
