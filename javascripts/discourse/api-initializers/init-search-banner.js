@@ -147,7 +147,8 @@ export default apiInitializer("0.8", (api) => {
         this.state.cdata.length > 0 &&
         attrs.target.name !== "" &&
         attrs.target.name !== "toggle" &&
-        attrs.target.name !== undefined
+        attrs.target.name !== undefined &&
+        attrs.target.name !== "all-category"
       ) {
         console.log("attrs name is", attrs.target.name);
         this.searchData.term = `#${attrs.target.name}`;
@@ -159,7 +160,7 @@ export default apiInitializer("0.8", (api) => {
           .replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
           });
-        this.state.categoryName = categoryNamew;
+        this.state.categoryName = attrs.target.value;
         document.getElementById("myDropdown").classList.remove("show");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
