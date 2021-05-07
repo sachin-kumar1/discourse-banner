@@ -151,7 +151,7 @@ export default apiInitializer("0.8", (api) => {
           .filter((val) => {
             return !val.startsWith("#");
           });
-        let result = val.join("");
+        let result = val.join(" ");
         this.searchData.term = ``;
         this.triggerSearch();
         $("#search-term").val(result);
