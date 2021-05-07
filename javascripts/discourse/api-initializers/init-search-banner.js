@@ -262,14 +262,17 @@ export default apiInitializer("0.8", (api) => {
     }
   });
 
-  api.addNavigationBarItem({
-    name: "some random link",
-    displayName: "testing",
-    title: "link title",
-    href: "/c/creating-surveys",
-    forceActive: (category, args, router) => {
-      console.log("current url is", router.currentURL);
-      return router.currentURL === "/c/creating-surveys";
-    },
+  // api.addNavigationBarItem({
+  //   name: "some random link",
+  //   displayName: "testing",
+  //   title: "link title",
+  //   href: "/c/creating-surveys",
+  //   forceActive: (category, args, router) => {
+  //     console.log("current url is", router.currentURL);
+  //     return router.currentURL === "/c/creating-surveys";
+  //   },
+  // });
+  api.decorateTopicTitle((topicModel, node, topicTitleType) => {
+    node.innerText = "my new topic title";
   });
 });
