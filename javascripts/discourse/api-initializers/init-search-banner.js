@@ -272,7 +272,7 @@ export default apiInitializer("0.8", (api) => {
   //     return router.currentURL === "/c/creating-surveys";
   //   },
   // });
-  api.decorateTopicTitle((topicModel, node, topicTitleType) => {
-    node.innerText = "my new topic title";
-  });
+  // api.decorateTopicTitle((topicModel, node, topicTitleType) => {
+  //   node.innerText = "my new topic title";
+  // });
 });
