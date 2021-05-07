@@ -272,7 +272,26 @@ export default apiInitializer("0.8", (api) => {
   //     return router.currentURL === "/c/creating-surveys";
   //   },
   // });
+
   // api.decorateTopicTitle((topicModel, node, topicTitleType) => {
   //   node.innerText = "my new topic title";
   // });
+
+  $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
+    (data) => {
+      this.state.cdata = data.category_list.categories;
+      data.category_list.categories.map((val) => {
+        api.addNavigationBarItem({
+          name: val.name,
+          displayName: val.name,
+          title: val.name,
+          href: `/c/${val.name}`,
+          forceActive: (category, args, router) => {
+            console.log("current url is", router.currentURL);
+            return router.currentURL === `/c/${val.name}`;
+          },
+        });
+      });
+    }
+  );
 });
