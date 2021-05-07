@@ -29,6 +29,14 @@ export default apiInitializer("0.8", (api) => {
             slug: "all-category",
           });
           this.state.cdata = data.category_list.categories;
+          data.category_list.categories.map((val) => {
+            api.addNavigationBarItem({
+              name: val.name,
+              displayName: val.name,
+              title: val.name,
+              href: "/c/creating-surveys/37",
+            });
+          });
         }
       );
       return {
@@ -260,12 +268,5 @@ export default apiInitializer("0.8", (api) => {
         formFactor: "widget",
       });
     }
-  });
-
-  api.addNavigationBarItem({
-    name: "test",
-    displayName: "test",
-    title: "test",
-    href: "/c/creating-surveys/37",
   });
 });
