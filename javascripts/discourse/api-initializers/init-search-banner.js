@@ -162,9 +162,18 @@ export default apiInitializer("0.8", (api) => {
         attrs.target.name !== "all-category"
       ) {
         console.log("attrs name is", attrs.target.name);
-        this.searchData.term = `#${attrs.target.name}`;
+        let val = $("#search-term")
+          .val()
+          .split(" ")
+          .filter((val) => {
+            return !val.startsWith("#");
+          });
+        let result = `#${attrs.target.name}` + val.join(" ");
+
+        this.searchData.term = result;
         this.triggerSearch();
-        $("#search-term").val(`#${attrs.target.name}`);
+        $("#search-term").val(result);
+
         let categoryNamew = attrs.target.name
           .split("-")
           .join(" ")
