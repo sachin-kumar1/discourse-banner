@@ -144,7 +144,7 @@ export default apiInitializer("0.8", (api) => {
         document.getElementById("myDropdown").classList.toggle("show");
       }
 
-      if (attrs.target.name !== "all-category") {
+      if (attrs.target.name === "all-category") {
         let val = $("#search-term")
           .val()
           .split(" ")
