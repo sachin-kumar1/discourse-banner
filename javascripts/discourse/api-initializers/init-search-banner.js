@@ -261,4 +261,11 @@ export default apiInitializer("0.8", (api) => {
       });
     }
   });
+
+  api.addNavigationBarItem({
+    name: "test",
+    displayName: "test",
+    title: "test",
+    href: location,
+  });
 });
