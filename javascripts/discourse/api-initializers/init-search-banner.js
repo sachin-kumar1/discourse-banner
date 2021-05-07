@@ -101,7 +101,7 @@ export default apiInitializer("0.8", (api) => {
             if (that.state.cdata) {
               that.state.cdata.map((value) => {
                 console.log("first ", value.slug, "second ", val[0]);
-                if (value.slug === val[0]) {
+                if (value.slug === val[0].substring(1)) {
                   that.state.categoryName = `${value.name}`;
                 }
               });
