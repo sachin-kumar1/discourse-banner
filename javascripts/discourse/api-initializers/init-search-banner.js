@@ -29,14 +29,6 @@ export default apiInitializer("0.8", (api) => {
             slug: "all-category",
           });
           this.state.cdata = data.category_list.categories;
-          data.category_list.categories.map((val) => {
-            api.addNavigationBarItem({
-              name: val.name,
-              displayName: val.name,
-              title: val.name,
-              href: "/c/creating-surveys/37",
-            });
-          });
         }
       );
       return {
@@ -269,4 +261,11 @@ export default apiInitializer("0.8", (api) => {
       });
     }
   });
+});
+
+api.addNavigationBarItem({
+  name: "some random link",
+  displayName: "testing",
+  title: "link title",
+  href: "/c/creating-surveys",
 });
