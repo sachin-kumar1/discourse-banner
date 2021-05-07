@@ -24,20 +24,6 @@ export default apiInitializer("0.8", (api) => {
     defaultState: function (attrs) {
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
-          data.category_list.categories.map((val) => {
-            api.addNavigationBarItem({
-              name: val.name,
-              displayName: val.name,
-              title: val.name,
-              href: `/c/${val.slug}`,
-              forceActive: (category, args, router) => {
-                console.log("current url is", router.currentURL);
-                return router.currentURL === `/c/${val.slug}`;
-              },
-            });
-          });
-          $("#navigation-bar").load(location.href + " #navigation-bar>*", "");
-
           data.category_list.categories.unshift({
             name: "All Category",
             slug: "all-category",
