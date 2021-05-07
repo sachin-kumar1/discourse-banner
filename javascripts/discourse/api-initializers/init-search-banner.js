@@ -160,7 +160,7 @@ export default apiInitializer("0.8", (api) => {
           .replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
           });
-        this.state.categoryName = attrs.target.value;
+        this.state.categoryName = categoryNamew;
         document.getElementById("myDropdown").classList.remove("show");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
