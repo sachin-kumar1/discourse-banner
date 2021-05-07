@@ -266,6 +266,6 @@ export default apiInitializer("0.8", (api) => {
     name: "test",
     displayName: "test",
     title: "test",
-    href: location,
+    href: "/c/creating-surveys/37",
   });
 });
