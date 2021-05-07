@@ -143,6 +143,20 @@ export default apiInitializer("0.8", (api) => {
       if (attrs.target.name === "toggle") {
         document.getElementById("myDropdown").classList.toggle("show");
       }
+
+      if (attrs.target.name !== "all-category") {
+        let val = $("#search-term")
+          .val()
+          .split(" ")
+          .filter((val) => {
+            return !val.startsWith("#");
+          });
+        let result = val.join("");
+        this.searchData.term = ``;
+        this.triggerSearch();
+        this.state.categoryName = "All Category";
+      }
+
       if (
         this.state.cdata.length > 0 &&
         attrs.target.name !== "" &&
