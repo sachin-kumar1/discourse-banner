@@ -149,6 +149,7 @@ export default apiInitializer("0.8", (api) => {
         attrs.target.name !== "toggle" &&
         attrs.target.name !== undefined
       ) {
+        console.log("attrs name is", attrs.target.name);
         this.searchData.term = `#${attrs.target.name}`;
         this.triggerSearch();
         $("#search-term").val(`#${attrs.target.name}`);
