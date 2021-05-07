@@ -99,7 +99,11 @@ export default apiInitializer("0.8", (api) => {
             });
           if (val.length > 0) {
             if (that.state.cdata) {
-              that.state.categoryName = "Categoryu";
+              that.state.cdata.map((value) => {
+                if (value.slug === val[0]) {
+                  that.state.categoryName = `${value.name}`;
+                }
+              });
             }
           } else {
             that.state.categoryName = "Category";
