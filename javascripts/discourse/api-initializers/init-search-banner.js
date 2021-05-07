@@ -267,7 +267,9 @@ export default apiInitializer("0.8", (api) => {
     displayName: "testing",
     title: "link title",
     href: "/c/creating-surveys",
-    forceActive: (category, args, router) =>
-      router.currentURL === "/c/creating-surveys",
+    forceActive: (category, args, router) => {
+      console.log("current url is", router.currentURL);
+      return router.currentURL === "/c/creating-surveys";
+    },
   });
 });
