@@ -261,11 +261,11 @@ export default apiInitializer("0.8", (api) => {
       });
     }
   });
-});
 
-api.addNavigationBarItem({
-  name: "some random link",
-  displayName: "testing",
-  title: "link title",
-  href: "/c/creating-surveys",
+  api.addNavigationBarItem({
+    name: "some random link",
+    displayName: "testing",
+    title: "link title",
+    href: "/c/creating-surveys",
+  });
 });
