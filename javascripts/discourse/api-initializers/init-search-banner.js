@@ -29,11 +29,6 @@ export default apiInitializer("0.8", (api) => {
             slug: "all-category",
           });
           this.state.cdata = data.category_list.categories;
-
-          console.log(
-            "data.category_list.categories",
-            data.category_list.categories
-          );
         }
       );
       return {
@@ -109,7 +104,6 @@ export default apiInitializer("0.8", (api) => {
           if (val.length > 0) {
             if (that.state.cdata) {
               that.state.cdata.map((value) => {
-                console.log("first ", value.slug, "second ", val[0]);
                 if (value.slug === val[0].substring(1)) {
                   that.state.categoryName = `${value.name}`;
                 }
@@ -138,6 +132,8 @@ export default apiInitializer("0.8", (api) => {
       }
     },
     click: function (attrs) {
+      console.log("seeing search term", this.searchData);
+
       document.getElementById("myDropdown").classList.remove("show");
       const formFactor = this.state.formFactor;
       if (attrs.target.name === "toggle") {
