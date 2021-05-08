@@ -22,6 +22,11 @@ export default apiInitializer("0.8", (api) => {
       return `search-${type}`;
     },
     defaultState: function (attrs) {
+      const categoryList = api.container.lookup("site:main").categories;
+      console.log(
+        "before making ajax request to fetch all categories",
+        categoryList
+      );
       $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
         (data) => {
           data.category_list.categories.unshift({
