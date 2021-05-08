@@ -22,26 +22,19 @@ export default apiInitializer("0.8", (api) => {
       return `search-${type}`;
     },
     defaultState: function (attrs) {
-      const categoryList = api.container.lookup("site:main").categories;
-      if (!(categoryList[0].name === "All Category")) {
-        categoryList.unshift({
-          name: "All Category",
-          slug: "all-category",
-        });
-      }
-      // $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
-      //   (data) => {
-      //     data.category_list.categories.unshift({
-      //       name: "All Category",
-      //       slug: "all-category",
-      //     });
-      //     this.state.cdata = data.category_list.categories;
-      //   }
-      // );
+      $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
+        (data) => {
+          data.category_list.categories.unshift({
+            name: "All Category",
+            slug: "all-category",
+          });
+          this.state.cdata = data.category_list.categories;
+        }
+      );
       return {
         formFactor: attrs.formFactor || "menu",
         showHeaderResults: false,
-        cdata: categoryList,
+        cdata: ["All Category"],
         categoryName: "All Category",
       };
     },
@@ -206,8 +199,8 @@ export default apiInitializer("0.8", (api) => {
     linkClickedEvent: function (attrs) {
       const formFactor = this.state.formFactor;
       if (formFactor === "widget") {
-        $("#search-term").val("");
         this.searchData.term = "";
+        $("#search-term").val("");
         $(".search-placeholder").css("visibility", "visible");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
