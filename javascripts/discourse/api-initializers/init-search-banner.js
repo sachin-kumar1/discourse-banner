@@ -25,16 +25,11 @@ export default apiInitializer("0.8", (api) => {
       const categoryList = api.container.lookup("site:main").categories;
       console.log("category list name is", categoryList[0].name);
       if (!(categoryList[0].name === "All Category")) {
-        console.log("unshift here");
-      }
-      if (!categoryList[0].name === "All Category") {
-        console.log("called unshift here");
         categoryList.unshift({
           name: "All Category",
           slug: "all-category",
         });
       }
-
       // $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
       //   (data) => {
       //     data.category_list.categories.unshift({
