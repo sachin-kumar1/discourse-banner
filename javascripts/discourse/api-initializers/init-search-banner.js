@@ -27,19 +27,23 @@ export default apiInitializer("0.8", (api) => {
         "before making ajax request to fetch all categories",
         categoryList
       );
-      $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
-        (data) => {
-          data.category_list.categories.unshift({
-            name: "All Category",
-            slug: "all-category",
-          });
-          this.state.cdata = data.category_list.categories;
-        }
-      );
+      categoryList.unshift({
+        name: "All Category",
+        slug: "all-category",
+      });
+      // $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
+      //   (data) => {
+      //     data.category_list.categories.unshift({
+      //       name: "All Category",
+      //       slug: "all-category",
+      //     });
+      //     this.state.cdata = data.category_list.categories;
+      //   }
+      // );
       return {
         formFactor: attrs.formFactor || "menu",
         showHeaderResults: false,
-        cdata: ["All Category"],
+        cdata: categoryList,
         categoryName: "All Category",
       };
     },
