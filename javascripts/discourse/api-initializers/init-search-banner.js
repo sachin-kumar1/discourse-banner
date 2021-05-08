@@ -23,7 +23,6 @@ export default apiInitializer("0.8", (api) => {
     },
     defaultState: function (attrs) {
       const categoryList = api.container.lookup("site:main").categories;
-      console.log("category list name is", categoryList[0].name);
       if (!(categoryList[0].name === "All Category")) {
         categoryList.unshift({
           name: "All Category",
