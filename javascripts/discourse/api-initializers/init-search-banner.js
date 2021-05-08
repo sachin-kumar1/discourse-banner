@@ -23,10 +23,13 @@ export default apiInitializer("0.8", (api) => {
     },
     defaultState: function (attrs) {
       const categoryList = api.container.lookup("site:main").categories;
-      categoryList.unshift({
-        name: "All Category",
-        slug: "all-category",
-      });
+      if (!categoryList[0].name === "All Category") {
+        categoryList.unshift({
+          name: "All Category",
+          slug: "all-category",
+        });
+      }
+
       // $.ajax("https://surveysparrow.trydiscourse.com/categories.json").then(
       //   (data) => {
       //     data.category_list.categories.unshift({
