@@ -23,10 +23,6 @@ export default apiInitializer("0.8", (api) => {
     },
     defaultState: function (attrs) {
       const categoryList = api.container.lookup("site:main").categories;
-      console.log(
-        "before making ajax request to fetch all categories",
-        categoryList
-      );
       categoryList.unshift({
         name: "All Category",
         slug: "all-category",
@@ -209,6 +205,7 @@ export default apiInitializer("0.8", (api) => {
       const formFactor = this.state.formFactor;
       if (formFactor === "widget") {
         $("#search-term").val("");
+        this.searchData.term = "";
         $(".search-placeholder").css("visibility", "visible");
         this.state.showHeaderResults = false;
         this.scheduleRerender();
